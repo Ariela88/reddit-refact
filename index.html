@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div class="navbar-container">
+        <div class="logo-container"></div>
+        <div class="button-container">
+            <button id="open-dialog-category-container">+ Aggiungi categoria</button>
+            <button>Scarica app</button>
+            <button>Login</button>
+        </div>
+        <div class="search-container">
+            <input type="text">
+            <button>Cerca</button>
+        </div>
+    </div>
+    <div class="sidebar-container">
+        <div class="sidebar-reddit-category-container">
+            <button class="most-recent-post-reddit-button">MOSTRA I POST RECENTI</button>
+            <hr>
+            <span>CATEGORIE</span>
+            <div id="sidebar-reddit-category-container"></div>
+            <hr>
+        </div>
+        <div class="sidebar-rss-category-container">
+            <span>RSS</span>
+            <div id="sidebar-rss-category-container"></div>
+            <hr>
+        </div>
+    </div>
+    <div class="main-page-container">
+        <div class="post-reddit-container">
+            <div class="page-button-container">
+                <button id="back-post-button">Indietro</button>
+                <button id="next-post-button">Avanti</button>
+            </div>
+            <div id="post-container"></div>
+        </div>
+        <div class="post-rss-container">
+            <div class="page-button-container">
+                <button id="back-rss-button">Indietro</button>
+                <button id="next-rss-button">Avanti</button>
+            </div>
+            <div id="rss-container"></div>
+        </div>
+    
+        <div id="selection-dialog-container">
+            <div class="new-category-selection">
+                <select name="category-type" id="category-type-selection">
+                    <option value="reddit">Categoria Reddit</option>
+                    <option value="rss">RSS</option>
+                </select>
+                <input type="text" id="input-new-category" value="">
+                <button id="save-new-category-button">Salva</button>
+            </div>
+            <div class="selection-container">
+                <div id="category-reddit-container">
+                    <add-category></add-category>
+                </div>
+                <div id="category-rss-container">
+                    <add-rss></add-rss>
+                </div>
+            </div>
+            <button id="save-button">Mostra Post</button>
+            <button id="close-category-dialog-button">Annulla</button>
+        </div>
+    </div>
+
+
+</body>
+<script type="module" src="./web-component/add-category.js"></script>
+<script type="module" src="./web-component/add-rss.js"></script>
+<script type="module" src="./web-component/reddit-post.js"></script>
+<script type="module" src="./app.js"></script>
+</html>

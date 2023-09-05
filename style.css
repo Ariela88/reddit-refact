@@ -1,0 +1,303 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Neucha&family=Raleway:wght@200;400;600;700&display=swap');
+
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.navbar-container {
+    background-color: #282626;
+    height: 64px;
+    width: 80%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-container {
+    height: calc(64px - (8px * 2));
+    background-image: url("./assets/logo-web-light.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    flex-grow: 1;
+    margin-left: 12px;
+}
+
+.button-container {
+    flex-grow: 3;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.button-container button{
+    border-radius: 20px;
+    height: 36px;
+    width: 120px;
+}
+
+.search-container {
+    margin-right: 12px;
+}
+
+/*STILE PER LA SIDEBAR, CHE CONTIENE LE CATEGORIE E GLI RSS*/
+.sidebar-container {
+    background-color: #454443;
+    height: 100%;
+    width: 20%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    font-family: 'Neucha', cursive;
+}
+
+.sidebar-container button{
+    font-family: 'Neucha', cursive;
+    font-size: 16px;
+}
+
+.sidebar-container span{
+    font-family: 'Neucha', cursive;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff4500;
+}
+
+.sidebar-reddit-category-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.sidebar-reddit-category-container hr {
+    color: white;
+    width: 90%;
+}
+
+.most-recent-post-reddit-button {
+    width: 80%;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    border-radius: 24px;
+    background-color: transparent;
+    color: white;
+    font-family: 'Neucha', cursive;
+    background-color: #ff4500;
+}
+
+.most-recent-post-reddit-button:hover {
+    background-color: #ff4500;
+    color: black;
+}
+
+#sidebar-reddit-category-container,
+#sidebar-rss-category-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+#sidebar-reddit-category-container button,
+#sidebar-rss-category-container button {
+    width: 60%;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    border-radius: 24px;
+    background-color: transparent;
+    color: white;
+}
+
+#sidebar-reddit-category-container button:hover,
+#sidebar-rss-category-container button:hover {
+    background-color: #ff4500;
+    color: black;
+}
+
+.sidebar-rss-category-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+/*STILE PER IL CONTAINER CHE MOSTRA I POST*/
+.main-page-container {
+    background-color: #949392;
+    height: calc(100% - 64px);
+    width: 80%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+}
+
+.page-button-container {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#selection-dialog-container {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    color: white;
+}
+
+hr{
+    width: 100%;
+    
+}
+
+.selection-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-reddit-container{
+    width: 60%;
+}
+
+.post-rss-container {
+    width: 30%;
+}
+
+#post-container {
+    height: calc(100% - 80px);
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    align-items: center;
+    gap: 24px;
+    overflow-y: auto;
+}
+
+#rss-container {
+    height: calc(100% - 80px);
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    align-items: center;
+    gap: 8px;
+    overflow-y: auto;
+}
+
+#post-container img {
+    max-width: 53%;
+    height: 100px;
+}
+
+#post-container .post-container {
+    width: 100%;
+}
+
+#post-container .post-header {
+    background-color: #282626;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    padding: 12px;
+}
+
+#post-container .post-content-image {
+    background-color: #beafa5;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    gap: 12px;
+}
+
+#post-container .post-content-text {
+    background-color: #beafa5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px;
+    gap: 12px;
+    font-style: italic;
+}
+
+#post-container .title {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+#post-container span {
+    text-align: left;
+}
+
+.post-rss-container a {
+    text-decoration: none;
+    color: #ffffff;
+    
+}
+
+.rss-container{
+    
+        background-color: transparent;
+        width: 100%;
+        float: right;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 40px;
+      }
+
+.rss-header {
+
+    background-color: #282626;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    color: white;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.post-rss-container a:hover{
+    text-decoration: none;
+    color: #ff4500;
+    font-weight: 700;
+}
