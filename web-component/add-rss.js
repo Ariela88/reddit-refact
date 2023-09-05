@@ -138,6 +138,7 @@ export default class RSS extends HTMLElement {
                     let xmlDoc = this.responseXML;
                     let title = "";
                     let link = "";
+                    let description = "";
                     let rawTitle = xmlDoc.getElementsByTagName("title");
                     let rawLink = xmlDoc.getElementsByTagName("link");
                     for (let i = 0; i < rawTitle.length; i++) {
@@ -146,7 +147,7 @@ export default class RSS extends HTMLElement {
                     for (let i = 0; i < rawLink.length; i++) {
                         link += rawLink[i].childNodes[0].nodeValue + "<br>";
                     }
-                    rssClass.showRSS(title, link);
+                    rssClass.showRSS(title, link, description);
                 }
             };
             console.log(rss)
@@ -174,9 +175,9 @@ export default class RSS extends HTMLElement {
     }
 
     // FUNZIONE CHE, UNA VOLTA RECUPERATI LE INFORMAZIONI, LE MOSTRA SOTTO FORMA DI POST
-    showRSS(title, link){
+    showRSS(title, link,description){
         const rssPost = new RSSPost();
-        rssPost.parseInformation(title, link)
+        rssPost.parseInformation(title, link,description)
         //    console.log("TITOLO", title)
         //    console.log("LINK", link)
     }

@@ -35,11 +35,14 @@ export class RedditPost extends HTMLElement {
                             <span>${post.subreddit_name_prefixed}</span>
                             <span>${post.author}</span>
                             <span>${this.calcTimeDifference(post.created)}</span>
+                            
                         </div>
                         <div class="post-content-image">
                             <span class="title">${post.title}</span>
                             <img src="${post.preview.images[0].source.url}">
                         </div>
+                        <div class="link-span"> <span><a href="${post.url}" target="_blank" rel="noopener noreferrer"> vai al link</a></span></div>
+                        
                     </div>
                 `;
                 postContainer.innerHTML += templateWithImage;
@@ -54,6 +57,8 @@ export class RedditPost extends HTMLElement {
                         <div class="post-content-text">
                             <span class="title">${post.title}</span>
                             <span>${post.selftext.slice(0, 200)}...</span>
+                            <span><a href="${post.url}" target="_blank" rel="noopener noreferrer"> vai al link</a></span>
+
                         </div>
                     </div>
                 `;

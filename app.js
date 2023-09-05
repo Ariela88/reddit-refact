@@ -33,6 +33,16 @@ document.getElementById("close-category-dialog-button").addEventListener("click"
     document.getElementById("selection-dialog-container").style.display = "none";
 });
 
+const searchBtn = document.getElementById('search-btn')
+
+searchBtn.addEventListener('click',()=> search())
+
+function search(){
+
+    let result = document.ricerca.search.value;
+    window.open("https://www.reddit.com/r/" + result)
+}
+
 // document.getElementById("next-post-button").addEventListener("click", () => {
 //     document.getElementById("post-container").innerHTML = "";
 //     redditPost.nextPost()

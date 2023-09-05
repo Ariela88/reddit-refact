@@ -11,27 +11,35 @@ export class RSSPost extends HTMLElement {
     connectedCallback() {
     };
 
-    parseInformation(titles, links) {
+    parseInformation(titles, links, descriptions) {
         const container = document.getElementById("rss-container");
         const titleArray = titles.split("<br>");
         const linkArray = links.split("<br>");
+        const descriptionArray = descriptions.split("<br>");
+    
         for (let i = 0; i < titleArray.length; i++) {
             const title = titleArray[i];
             const link = linkArray[i];
-            if(title !== "Focus.it" && link !== "https://www.focus.it/rss"){
-            const template = `
+            const description = descriptionArray[i] || ''; 
+    
+            if (title !== "Focus.it" && link !== "https://www.focus.it/rss") {
+                const template = `
                     <div class="rss-container">
                         <div class="rss-header">
-                            <a href="${link}">${title}</span>
+                            <a target="_blank" href="${link}">${title}</a>
+                        </div>
+                        <div class="rss-description">
+                           <img src="${description}>
                         </div>
                     </div>
-            `;
-            
-            container.innerHTML += template
+                `;
+    
+                container.innerHTML += template;
             }
         }
-
     }
+    
+    
 
     // FUNZIONE CHE RENDERIZZA LA STRUTTURA HTML
     render(posts) {
