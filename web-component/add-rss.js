@@ -102,14 +102,14 @@ export default class RSS extends HTMLElement {
         const saveButton = document.getElementById("save-button");
         saveButton.addEventListener("click", () => {
             document.getElementById('rss-container').innerHTML = ''
-            // IL SALVATAGGIO AVVIENE SOLAMENTE SE ALMENO UNA DELLE CATEGORIE E' SELEZIONATA
+           
                 if(this.selectedRSS.length > 0){
                 localStorage.setItem("rss", JSON.stringify(this.selectedRSS));
                 const container = document.getElementById("selection-dialog-container");
                 container.style.display = "none";
                 this.loadSavedCategoriesPosts();
             } else {
-                // ALTRIMENTI, SE NON VIENE SELEZIONATA NESSUNA CATEGORIA, VENGONO SELEZIONATE AUTOMATICAMENTE TUTTE (QUESTO VERRA' ELIMINATO SE ALLA FINE DELLA SESSIONE NON VIENE SELEZIONATA NESSUNA CATEGORIA)
+                
                 const allRSS = [];
                 for (const rss of this.rssList) {
                     allRSS.push(rss.value);
@@ -120,6 +120,22 @@ export default class RSS extends HTMLElement {
                 this.loadSavedCategoriesPosts();
             }
             });
+    }
+
+    showRSSInSidebar(){
+        const sidebar = new SidebarCategories();
+        if(this.selectedRSS <= 0){
+            sidebar.renderRSS(this.rssList);
+        } else {
+            const rssListOfSelected = this.rssList.filter(category => this.selectedRSS.includes(category.value));
+            sidebar.renderRSS(rssListOfSelected)
+        }
+    }
+
+      showRSS(title, link,description){
+        const rssPost = new RSSPost();
+        rssPost.parseInformation(title, link,description)
+     
     }
 
      async loadSavedCategoriesPosts() {
@@ -156,21 +172,7 @@ export default class RSS extends HTMLElement {
         }
     }
 
-    showRSSInSidebar(){
-        const sidebar = new SidebarCategories();
-        if(this.selectedRSS <= 0){
-            sidebar.renderRSS(this.rssList);
-        } else {
-            const rssListOfSelected = this.rssList.filter(category => this.selectedRSS.includes(category.value));
-            sidebar.renderRSS(rssListOfSelected)
-        }
-    }
-
-      showRSS(title, link,description){
-        const rssPost = new RSSPost();
-        rssPost.parseInformation(title, link,description)
-     
-    }
+   
 
 }
 

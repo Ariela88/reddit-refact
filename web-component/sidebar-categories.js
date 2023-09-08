@@ -1,3 +1,4 @@
+import RSS from "./add-rss.js";
 import { RedditPost } from "./reddit-post.js";
 
 export class SidebarCategories extends HTMLElement {
@@ -62,7 +63,8 @@ export class SidebarCategories extends HTMLElement {
     };
 
     async showSelectedRSSPosts(category) {
-        console.log(category)
+       const rssSide = new RSS()
+       rssSide.render(category)
     };
 
 
