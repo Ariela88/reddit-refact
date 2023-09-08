@@ -5,7 +5,7 @@ export default class RSS extends HTMLElement {
     constructor(){
         super();
         this.attachShadow({mode: "open"});
-        // ARRAY IN CUI SONO PRESENTI I PRINCIPALI RSS (NOME VISUALIZZATO E VALORE PER LA RICERCA)
+        
         this.rssList = [
             {
                 "name": "Il Secolo XIX - Genova",
@@ -35,14 +35,14 @@ export default class RSS extends HTMLElement {
         this.render();
     }
 
-    // FUNZIONE CHE RENDERIZZA LA STRUTTURA HTML
+   
     render(){
         const savedRSS = localStorage.getItem("rss");
         const container = document.getElementById("category-rss-container");
               container.innerHTML = "";
         this.shadowRoot.innerHTML = "";
 
-        // LOOP CHE CICLA SUGLI RSS SALVATE, CREANDO GLI INPUT PER LA SCELTA DA PARTE DELL'UTENTE
+     
         for (const rss of this.rssList) {
             const inputContainer = document.createElement("div");
             const inputElement = document.createElement("input");
@@ -54,8 +54,7 @@ export default class RSS extends HTMLElement {
             const inputTextElement = document.createElement("span") 
             const inputText = document.createTextNode(rss.name);
 
-            // METODO CHE CONTROLLA LA CHECKBOX QUANDO VIENE CLICCATA; SE E' CHECKATA, PUSHA IL VALORE ALL'INTERNO DELL'ARRAY, ALTRIMENTI LO FILTRA, ELIMINANDO IL VALORE DESELEZIONATO
-            inputElement.addEventListener("click", () =>{
+             inputElement.addEventListener("click", () =>{
                 if(inputElement.checked){
                     this.selectedRSS.push(inputElement.value);
                 } else {
@@ -71,8 +70,7 @@ export default class RSS extends HTMLElement {
         this.saveSelectedRSSIntoLocalStorage();
     }
 
-     // FUNZIONE CHE AGGIUNGE ALLA LISTA DI CATEGORIE QUELLA AGGIUNTA DALL'UTENTE
-     addNewCategoryToList(newCategory){
+      addNewCategoryToList(newCategory){
         let newCategoryObject = {
             "name": newCategory,
             "value": newCategory
@@ -82,8 +80,7 @@ export default class RSS extends HTMLElement {
         this.render();
     };
 
-    // FUNZIONE CHE RECUPERA, SE PRESENTI, GLI RSS SALVATE E LE SOSTITUISCE ALL'ARRAY DI RSS SELEZIONATI
-    loadSavedRSS(){
+     loadSavedRSS(){
         const savedCategories = localStorage.getItem("rss");
         if(savedCategories !== null){
             JSON.parse(savedCategories).map(category => {
@@ -94,16 +91,14 @@ export default class RSS extends HTMLElement {
         }
     };
 
-     // FUNZIONE CHE RECUPERA LE INFORMAZIONI RIGUARDO ALLA LISTA MODIFICATA DALL'UTENTE, SALVANDOLA AL POSTO DI QUELLA DI DEFEAULT
-     completeCategoryList(){
+      completeCategoryList(){
         let newCategoriesSlot = localStorage.getItem("rss-categories");
         const newCategoryList = [];
         JSON.parse(newCategoriesSlot).map(newCategory => newCategoryList.push(newCategory));
         this.rss = newCategoryList;
     }
 
-    // FUNZIONE DEL BUTTON CHE SALVA IN LOCALE GLI RSS SELEZIONATI
-    saveSelectedRSSIntoLocalStorage(){
+     saveSelectedRSSIntoLocalStorage(){
         const saveButton = document.getElementById("save-button");
         saveButton.addEventListener("click", () => {
             document.getElementById('rss-container').innerHTML = ''
@@ -127,8 +122,7 @@ export default class RSS extends HTMLElement {
             });
     }
 
-    // FUNZIONE CHE ESEGUE LA FETCH PER LE SINGOLE CATEGORIE; QUANDO QUESTE SONO COMPLETE, VIENE CHIAMATA UNA SECONDA FUNZIONE, CHE VISUALIZZA LE INFORMAZIONI ALL'UTENTE
-    async loadSavedCategoriesPosts() {
+     async loadSavedCategoriesPosts() {
         const savedRSS = localStorage.getItem("rss");
         JSON.parse(savedRSS).map(rss => {
             let xhttp = new XMLHttpRequest();
@@ -157,13 +151,11 @@ export default class RSS extends HTMLElement {
 
         this.showRSSInSidebar()
 
-        // IL LOCAL STORAGE VIENE ELIMINATO SOLO SE NON SONO STATE SELEZIONATE DELLE CATEGORIE
-        if (this.selectedRSS.length <= 0) {
+         if (this.selectedRSS.length <= 0) {
             localStorage.removeItem("rss");
         }
     }
 
-    // FUNZIONE CHE, UNA VOLTA ESEGUITO L'USCITA DALLA DIALOG PER LA SELEZIONE, MOSTRA LE CATEGORIE SELEZIONATE OPPURE, IN CASO DI MANCATA SELEZIONE, TUTTI QUELLI PRESENTI DI DEFAULT
     showRSSInSidebar(){
         const sidebar = new SidebarCategories();
         if(this.selectedRSS <= 0){
@@ -174,12 +166,10 @@ export default class RSS extends HTMLElement {
         }
     }
 
-    // FUNZIONE CHE, UNA VOLTA RECUPERATI LE INFORMAZIONI, LE MOSTRA SOTTO FORMA DI POST
-    showRSS(title, link,description){
+      showRSS(title, link,description){
         const rssPost = new RSSPost();
         rssPost.parseInformation(title, link,description)
-        //    console.log("TITOLO", title)
-        //    console.log("LINK", link)
+     
     }
 
 }

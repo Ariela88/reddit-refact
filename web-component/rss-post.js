@@ -41,10 +41,8 @@ export class RSSPost extends HTMLElement {
     
     
 
-    // FUNZIONE CHE RENDERIZZA LA STRUTTURA HTML
-    render(posts) {
-        // SE NON SONO PRESENTI POST SALVATI IN LOCALE, VENGONO AGGIUNTI ALLA PRIMA CHIAMATA
-        if (currentRSSPost.length <= 0) {
+       render(posts) {
+         if (currentRSSPost.length <= 0) {
             posts.forEach(post => {
                 currentRSSPost.push(post)
             });
@@ -54,9 +52,7 @@ export class RSSPost extends HTMLElement {
 
         const postContainer = document.getElementById("rss-container");
         postContainer.innerHTML = "";
-
-        // LOOP CHE CICLA SULLE INFORMAZIONI, COSTRUENDO UN TEMPLATE HTML CON ESSE ED INSERENDOLE ALL'INTERNO DELL'ELEMENTO CONTAINER
-        for (let i = 0; i < 10; i++) {
+ for (let i = 0; i < 10; i++) {
             const post = posts[i];
                 const template = `
                     <div class="post-container">
@@ -77,24 +73,14 @@ export class RSSPost extends HTMLElement {
     };
 
 
-    // FUNZIONE CHE MOSTRA I 10 POST SEGUENTI 
+   
     nextPost() {
-        //modificare funzione
-        // if(this.index < (currentPost.length - 1) && this.index + 10 <= currentPost.length - 1){
-        //     this.index += 10;
-        //     this.remainingPosts -= 10;
-        // }
-        // this.render(currentPost);
+      
     }
 
-    // FUNZIONE CHE MOSTRA I 10 POST PRECEDENTI
+   
     backPost() {
-        // modificare funzione
-        // if(this.index > 0){
-        //     this.index -= 10;
-        //     this.remainingPosts += 10;
-        // }
-        // this.render(currentPost);
+       
     }
 
 }

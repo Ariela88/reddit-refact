@@ -6,16 +6,15 @@ export class RedditPost extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.remainingPosts = 0;
         this.index = 0;
-        this.postsPerPage = 10; // Numero di post da visualizzare per pagina
+        this.postsPerPage = 10; 
     this.currentIndex = 0;
     };
 
     connectedCallback() {
     };
 
-    // FUNZIONE CHE RENDERIZZA LA STRUTTURA HTML
-    render(posts) {
-        // SE NON SONO PRESENTI POST SALVATI IN LOCALE, VENGONO AGGIUNTI ALLA PRIMA CHIAMATA
+     render(posts) {
+       
         if (currentPost.length <= 0) {
             posts.forEach(post => {
                 currentPost.push(post)
@@ -66,8 +65,7 @@ export class RedditPost extends HTMLElement {
         }
     }
     
-    // FUNZIONE CHE CALCOLA LA DIFFERENZA DI TEMPO TRA LA CREAZIONE DEL POST E ADESSO
-    calcTimeDifference(creationTime) {
+     calcTimeDifference(creationTime) {
         let now = new Date().getTime();
         let hour = 1000 * 60 * 60;
         let difference = now - (creationTime * 1000);
@@ -101,8 +99,7 @@ export class RedditPost extends HTMLElement {
         }
     }
 
-    // FUNZIONE CHE MOSTRA I 10 POST SEGUENTI 
-    nextPost() {
+     nextPost() {
         console.log('next')
         if (this.currentIndex + this.postsPerPage < currentPost.length) {
             this.currentIndex += this.postsPerPage;

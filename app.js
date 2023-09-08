@@ -8,17 +8,14 @@ let rssCategory = new RSS();
 let redditPost = new RedditPost();
 
 
-// CONTROLLA SE VIENE ESEGUITO IL REFRESH DELLA PAGINA ED ELIMINA IL VALORE ALL'INTENRO DELL'INPUT
 if (self.navigator.type == self.navigator.TYPE_RELOAD) {
     document.getElementById("input-new-category").value = "";
   }
 
-// FUNZIONE CHE, QUANDO CHIAMATA, CONTROLLA
 document.getElementById("open-dialog-category-container").addEventListener("click", () => {
     document.getElementById("selection-dialog-container").style.display = "flex";
 });
 
-// FUNZIONE CHE CONTROLLA L'OPTION SELEZIONATA E SE E' STATO INSERITO UN VALORE ALL'INTERNO DELL'INPUT, AGGIUNGENDO QUEL VALORE ALL'INTERNO DELLA LIST CORRISPONDETE E VISUALIZZANDOLO
 document.getElementById("save-new-category-button").addEventListener("click", () => {
     const typeCategorySelected = document.getElementById("category-type-selection");
     const inputCategory = document.getElementById("input-new-category");

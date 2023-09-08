@@ -10,16 +10,14 @@ export class SidebarCategories extends HTMLElement {
     connectedCallback() {
     };
 
-    // FUNZIONE CHE RENDERIZZA LA STRUTTURA HTML
     renderReddit(categoriesList) {
         const redditContainer = document.getElementById("sidebar-reddit-category-container");
         redditContainer.innerHTML = "";
-        for(const category of categoriesList){
+        for (const category of categoriesList) {
             const categoryButton = document.createElement("button");
-            // FUNZIONE AL CLICK CHE PRENDE IL VALORE CORRISPONDENTE E CHIAMA LA FUNZIONE PER RECUPERARE LE INFORMAZIONI CORRISPONDENTI
-                  categoryButton.addEventListener("click", () => {
-                    this.showSelectedCategoryPosts(category.value);
-                  })
+            categoryButton.addEventListener("click", () => {
+                this.showSelectedCategoryPosts(category.value);
+            })
             const buttonText = document.createTextNode(category.name);
 
             categoryButton.appendChild(buttonText);
@@ -27,8 +25,7 @@ export class SidebarCategories extends HTMLElement {
         }
     };
 
-    // FUNZIONE CHE RECUPERA LE INFORMAZIONI DELLA CATEGORIA SELEZIONATA E CHIAMA LA FUNZIONE DI RENDER DEI POST
-    async showSelectedCategoryPosts(category){
+    async showSelectedCategoryPosts(category) {
         const postList = [];
         const promisesList = [];
         const promise = fetch(`https://api.reddit.com/search.json?q=${category}=new`).then(resp => resp.json()).then(res => {
@@ -45,20 +42,18 @@ export class SidebarCategories extends HTMLElement {
 
         Promise.all(promisesList).then(() => redditPost.render(postList));
 
-        
+
     };
 
-    // FUNZIONE CHE RENDERIZZA LA STRUTTURA HTML
     renderRSS(categoriesList) {
         const rssContainer = document.getElementById("sidebar-rss-category-container");
         console.log("sidebar rss", categoriesList)
         rssContainer.innerHTML = "";
-        for(const category of categoriesList){
+        for (const category of categoriesList) {
             const categoryButton = document.createElement("button");
-            // FUNZIONE AL CLICK CHE PRENDE IL VALORE CORRISPONDENTE E CHIAMA LA FUNZIONE PER RECUPERARE LE INFORMAZIONI CORRISPONDENTI
-                  categoryButton.addEventListener("click", () => {
-                    this.showSelectedRSSPosts(category.value);
-                  })
+            categoryButton.addEventListener("click", () => {
+                this.showSelectedRSSPosts(category.value);
+            })
             const buttonText = document.createTextNode(category.name);
 
             categoryButton.appendChild(buttonText);
@@ -66,9 +61,8 @@ export class SidebarCategories extends HTMLElement {
         }
     };
 
-    // FUNZIONE CHE RECUPERA LE INFORMAZIONI DELLA CATEGORIA SELEZIONATA E CHIAMA LA FUNZIONE DI RENDER DEI POST
-    async showSelectedRSSPosts(category){
-        console.log(category)        
+    async showSelectedRSSPosts(category) {
+        console.log(category)
     };
 
 
