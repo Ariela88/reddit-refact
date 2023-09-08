@@ -1,4 +1,4 @@
-import RSS from "./add-rss.js";
+
 import { RedditPost } from "./reddit-post.js";
 
 export class SidebarCategories extends HTMLElement {
