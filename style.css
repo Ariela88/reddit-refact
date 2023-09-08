@@ -11,6 +11,10 @@ body {
     overflow: hidden;
 }
 
+a{
+   
+    color: white;
+}
 .navbar-container {
     background-color: #282626;
     height: 64px;

@@ -50,4 +50,6 @@ document.getElementById("back-post-button").addEventListener("click", () => {
     redditPost.backPost()
 });
 
+// document.getElementById('most-recent-post-reddit-button').addEventListener('click', ()=> redditPost.displayMostRecentPost())
+
 

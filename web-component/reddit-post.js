@@ -33,9 +33,9 @@ export class RedditPost extends HTMLElement {
                 const templateWithImage = `
                     <div class="post-container">
                         <div class="post-header">
-                            <span>${post.subreddit_name_prefixed}</span>
-                            <span>${post.author}</span>
-                            <span>${this.calcTimeDifference(post.created)}</span>
+                           <span> <a href="https://www.reddit.com/${post.subreddit_name_prefixed}/" target="_blank" rel="">${post.subreddit_name_prefixed}</a></span>
+                           <span> <a href="https://www.reddit.com/user/${post.author}/" target="_blank" rel="">${post.author}</a></span>
+                         <span>${this.calcTimeDifference(post.created)}</span>
                         </div>
                         <div class="post-content-image">
                             <span class="title">${post.title}</span>
@@ -118,6 +118,15 @@ export class RedditPost extends HTMLElement {
         }
     }
     
+
+displayMostRecentPost() {
+    const postContainer = document.getElementById("post-container");
+    postContainer.innerHTML = "";
+
+    currentPost.sort((a, b) => b.creationTime - a.creationTime);
+    this.render() 
+}
+
 
 }
 
