@@ -46,10 +46,6 @@ export default class Category extends HTMLElement {
             {
                 "name": "Viaggi",
                 "value": "travel"
-            },
-            {
-                "name": "Arte",
-                "value": "art"
             }
         ];
     };
@@ -171,6 +167,8 @@ export default class Category extends HTMLElement {
         });
 
         this.showCategoriesInSidebar();
+
+        
 
         // IL LOCAL STORAGE VIENE ELIMINATO SOLO SE NON SONO STATE SELEZIONATE DELLE CATEGORIE
         if(this.selectedCategories.length <= 0){

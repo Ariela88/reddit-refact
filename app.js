@@ -43,12 +43,14 @@ function search(){
     window.open("https://www.reddit.com/r/" + result)
 }
 
-// document.getElementById("next-post-button").addEventListener("click", () => {
-//     document.getElementById("post-container").innerHTML = "";
-//     redditPost.nextPost()
-// });
+document.getElementById("next-post-button").addEventListener("click", () => {
+    document.getElementById("post-container").innerHTML = "";
+    redditPost.nextPost()
+});
 
-// document.getElementById("back-post-button").addEventListener("click", () => {
-//     document.getElementById("post-container").innerHTML = "";
-//     redditPost.backPost()
-// });
+document.getElementById("back-post-button").addEventListener("click", () => {
+    document.getElementById("post-container").innerHTML = "";
+    redditPost.backPost()
+});
+
+

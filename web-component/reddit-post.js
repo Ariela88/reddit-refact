@@ -6,6 +6,8 @@ export class RedditPost extends HTMLElement {
         this.attachShadow({ mode: "open" });
         this.remainingPosts = 0;
         this.index = 0;
+        this.postsPerPage = 10; // Numero di post da visualizzare per pagina
+    this.currentIndex = 0;
     };
 
     connectedCallback() {
@@ -19,15 +21,15 @@ export class RedditPost extends HTMLElement {
                 currentPost.push(post)
             });
         }
-
-        console.log(posts)
-
+    
         const postContainer = document.getElementById("post-container");
         postContainer.innerHTML = "";
-
-        // LOOP CHE CICLA SULLE INFORMAZIONI, COSTRUENDO UN TEMPLATE HTML CON ESSE ED INSERENDOLE ALL'INTERNO DELL'ELEMENTO CONTAINER
-        for (let i = 0; i < 10; i++) {
-            const post = posts[i];
+    
+        const startIndex = this.currentIndex;
+        const endIndex = Math.min(this.currentIndex + this.postsPerPage, currentPost.length);
+    
+        for (let i = startIndex; i < endIndex; i++) {
+            const post = currentPost[i];
             if (post.preview) {
                 const templateWithImage = `
                     <div class="post-container">
@@ -35,14 +37,12 @@ export class RedditPost extends HTMLElement {
                             <span>${post.subreddit_name_prefixed}</span>
                             <span>${post.author}</span>
                             <span>${this.calcTimeDifference(post.created)}</span>
-                            
                         </div>
                         <div class="post-content-image">
                             <span class="title">${post.title}</span>
                             <img src="${post.preview.images[0].source.url}">
                         </div>
                         <div class="link-span"> <span><a href="${post.url}" target="_blank" rel="noopener noreferrer"> vai al link</a></span></div>
-                        
                     </div>
                 `;
                 postContainer.innerHTML += templateWithImage;
@@ -58,16 +58,14 @@ export class RedditPost extends HTMLElement {
                             <span class="title">${post.title}</span>
                             <span>${post.selftext.slice(0, 200)}...</span>
                             <span><a href="${post.url}" target="_blank" rel="noopener noreferrer"> vai al link</a></span>
-
                         </div>
                     </div>
                 `;
                 postContainer.innerHTML += templateWithoutImage;
             }
-
         }
-    };
-
+    }
+    
     // FUNZIONE CHE CALCOLA LA DIFFERENZA DI TEMPO TRA LA CREAZIONE DEL POST E ADESSO
     calcTimeDifference(creationTime) {
         let now = new Date().getTime();
@@ -105,23 +103,24 @@ export class RedditPost extends HTMLElement {
 
     // FUNZIONE CHE MOSTRA I 10 POST SEGUENTI 
     nextPost() {
-        //modificare funzione
-        // if(this.index < (currentPost.length - 1) && this.index + 10 <= currentPost.length - 1){
-        //     this.index += 10;
-        //     this.remainingPosts -= 10;
-        // }
-        // this.render(currentPost);
+        console.log('next')
+        if (this.currentIndex + this.postsPerPage < currentPost.length) {
+            this.currentIndex += this.postsPerPage;
+            this.render(currentPost);
+        }
     }
 
-    // FUNZIONE CHE MOSTRA I 10 POST PRECEDENTI
+    
     backPost() {
-        // modificare funzione
-        // if(this.index > 0){
-        //     this.index -= 10;
-        //     this.remainingPosts += 10;
-        // }
-        // this.render(currentPost);
+        if (this.currentIndex >= this.postsPerPage) {
+            this.currentIndex -= this.postsPerPage;
+            this.render(currentPost);
+        } else {
+            alert("Nessuna pagina precedente.");
+            this.render()
+        }
     }
+    
 
 }
 
