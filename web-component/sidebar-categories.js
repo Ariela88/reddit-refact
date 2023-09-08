@@ -17,6 +17,7 @@ export class SidebarCategories extends HTMLElement {
         for (const category of categoriesList) {
             const categoryButton = document.createElement("button");
             categoryButton.addEventListener("click", () => {
+                
                 this.showSelectedCategoryPosts(category.value);
             })
             const buttonText = document.createTextNode(category.name);
@@ -27,6 +28,7 @@ export class SidebarCategories extends HTMLElement {
     };
 
     async showSelectedCategoryPosts(category) {
+        
         const postList = [];
         const promisesList = [];
         const promise = fetch(`https://api.reddit.com/search.json?q=${category}=new`).then(resp => resp.json()).then(res => {
@@ -53,6 +55,7 @@ export class SidebarCategories extends HTMLElement {
         for (const category of categoriesList) {
             const categoryButton = document.createElement("button");
             categoryButton.addEventListener("click", () => {
+                
                 this.showSelectedRSSPosts(category.value);
             })
             const buttonText = document.createTextNode(category.name);
@@ -63,8 +66,7 @@ export class SidebarCategories extends HTMLElement {
     };
 
     async showSelectedRSSPosts(category) {
-       const rssSide = new RSS()
-       rssSide.render(category)
+     console.log(category)
     };
 
 

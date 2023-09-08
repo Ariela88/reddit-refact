@@ -390,12 +390,12 @@ hr{
 
     .post-reddit-container{
         width: 100%;
-       height: 60%;
+       height: 50%;
         overflow: scroll;
     }
 
     .post-rss-container {
-        height: 40%;
+        height: 50%;
         width: 100%;
         overflow: scroll;
     }
@@ -428,8 +428,7 @@ hr{
 
     }
 
-    
-        #rss-container {
+  #rss-container {
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -464,4 +463,5 @@ hr{
     #selection-dialog-container button{
         margin: 10px;
     }
+
 }

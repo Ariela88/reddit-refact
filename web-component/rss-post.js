@@ -11,38 +11,53 @@ export class RSSPost extends HTMLElement {
     connectedCallback() {
     };
 
-    parseInformation(titles, links, descriptions) {
+    parseInformation(titles, links, images) {
         const container = document.getElementById("rss-container");
         const titleArray = titles.split("<br>");
         const linkArray = links.split("<br>");
-        const descriptionArray = descriptions.split("<br>");
-    
+        //const descriptionArray = descriptions.split("<br>");
+
+
         for (let i = 0; i < titleArray.length; i++) {
             const title = titleArray[i];
             const link = linkArray[i];
-            const description = descriptionArray[i] || ''; 
-    
+
+
             if (title !== "Focus.it" && link !== "https://www.focus.it/rss") {
-                const template = `
+                if (images.length > 0) {
+                    let image = images[i].attributes.url;
+
+                    let template = `
                     <div class="rss-container">
                         <div class="rss-header">
                             <a target="_blank" href="${link}">${title}</a>
                         </div>
                         <div class="rss-description">
-                           <img src="${description}>
+                           <img src="${image.url} alt="">
                         </div>
                     </div>
                 `;
-    
-                container.innerHTML += template;
+                    container.innerHTML += template;
+                } else {
+
+                    let template = `
+        <div class="rss-container">
+            <div class="rss-header">
+                <a target="_blank" href="${link}">${title}</a>
+            </div>
+           
+        </div>`
+                    container.innerHTML += template;
+                }
+
             }
         }
     }
-    
-    
 
-       render(posts) {
-         if (currentRSSPost.length <= 0) {
+
+
+    render(posts) {
+        if (currentRSSPost.length <= 0) {
             posts.forEach(post => {
                 currentRSSPost.push(post)
             });
@@ -52,9 +67,9 @@ export class RSSPost extends HTMLElement {
 
         const postContainer = document.getElementById("rss-container");
         postContainer.innerHTML = "";
- for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 10; i++) {
             const post = posts[i];
-                const template = `
+            const template = `
                     <div class="post-container">
                         <div class="post-header">
                             <span>${post.subreddit_name_prefixed}</span>
@@ -67,20 +82,20 @@ export class RSSPost extends HTMLElement {
                         </div>
                     </div>
                 `;
-                postContainer.innerHTML += template;
+            postContainer.innerHTML += template;
 
         }
     };
 
 
-   
+
     nextPost() {
-      
+
     }
 
-   
+
     backPost() {
-       
+
     }
 
 }

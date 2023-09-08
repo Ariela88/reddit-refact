@@ -132,13 +132,14 @@ export default class RSS extends HTMLElement {
         }
     }
 
-      showRSS(title, link,description){
+      showRSS(title, link,image){
         const rssPost = new RSSPost();
-        rssPost.parseInformation(title, link,description)
+        rssPost.parseInformation(title, link,image)
      
     }
 
      async loadSavedCategoriesPosts() {
+        
         const savedRSS = localStorage.getItem("rss");
         JSON.parse(savedRSS).map(rss => {
             let xhttp = new XMLHttpRequest();
@@ -148,19 +149,20 @@ export default class RSS extends HTMLElement {
                     let xmlDoc = this.responseXML;
                     let title = "";
                     let link = "";
-                    let description = "";
-                    let rawTitle = xmlDoc.getElementsByTagName("title");
+                   let rawTitle = xmlDoc.getElementsByTagName("title");
                     let rawLink = xmlDoc.getElementsByTagName("link");
+                    let rawImg = xmlDoc.getElementsByTagName("media:content");
                     for (let i = 0; i < rawTitle.length; i++) {
                         title += rawTitle[i].childNodes[0].nodeValue + "<br>";
                     }
                     for (let i = 0; i < rawLink.length; i++) {
                         link += rawLink[i].childNodes[0].nodeValue + "<br>";
                     }
-                    rssClass.showRSS(title, link, description);
+                    console.log(rawImg)
+                    rssClass.showRSS(title, link, rawImg);
                 }
             };
-            console.log(rss)
+            console.log()
             xhttp.open("GET", rss, true);
             xhttp.send();
         });
