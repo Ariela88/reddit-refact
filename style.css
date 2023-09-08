@@ -340,6 +340,10 @@ hr{
         margin-bottom: 40px;
       }
 
+      .rss-description img{
+        width: 100%;
+    }
+
 .rss-header {
 
     background-color: #282626;
@@ -372,6 +376,8 @@ hr{
         padding-bottom: 10px;
         
     }
+
+  
 
     .sidebar-container {
         display: none;

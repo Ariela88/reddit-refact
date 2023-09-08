@@ -134,7 +134,7 @@ export default class RSS extends HTMLElement {
 
       showRSS(title, link,image){
         const rssPost = new RSSPost();
-        rssPost.parseInformation(title, link,image)
+        rssPost.parseInformation(title, link, image)
      
     }
 

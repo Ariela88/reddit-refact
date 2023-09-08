@@ -25,7 +25,7 @@ export class RSSPost extends HTMLElement {
 
             if (title !== "Focus.it" && link !== "https://www.focus.it/rss") {
                 if (images.length > 0) {
-                    let image = images[i].attributes.url;
+                    let image = images[i].attributes.url.value;
 
                     let template = `
                     <div class="rss-container">
@@ -33,7 +33,7 @@ export class RSSPost extends HTMLElement {
                             <a target="_blank" href="${link}">${title}</a>
                         </div>
                         <div class="rss-description">
-                           <img src="${image.url} alt="">
+                           <img src="${image} alt="">
                         </div>
                     </div>
                 `;
