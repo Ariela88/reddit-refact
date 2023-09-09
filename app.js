@@ -43,7 +43,7 @@ function search(){
 document.getElementById("next-post-button").addEventListener("click", () => {
     document.getElementById("post-container").innerHTML = "";
     redditPost.nextPost()
-});
+}); 
 
 document.getElementById("back-post-button").addEventListener("click", () => {
     document.getElementById("post-container").innerHTML = "";
@@ -73,5 +73,39 @@ document.addEventListener("DOMContentLoaded", function () {
       isRedditContainerVisible = !isRedditContainerVisible;
     });
   });
-  
 
+  if (window.innerWidth <= 500) {
+  document.addEventListener("DOMContentLoaded", function () {
+    const postContainer = document.getElementById("post-container");
+    const backButton = document.getElementById("back-post-button");
+    const nextButton = document.getElementById("next-post-button");
+  
+   
+    backButton.style.display = "none";
+    nextButton.style.display = "none";
+  
+    
+    postContainer.addEventListener("scroll", function () {
+      
+      if (
+        postContainer.scrollTop + postContainer.clientHeight >=
+        postContainer.scrollHeight
+      ) {
+      
+        nextButton.style.display = "block";
+      } else {
+      
+        nextButton.style.display = "none";
+      }
+  
+     
+      if (postContainer.scrollTop === 0) {
+       
+        backButton.style.display = "none";
+      } else {
+       
+        backButton.style.display = "block";
+      }
+    });
+  });
+  }

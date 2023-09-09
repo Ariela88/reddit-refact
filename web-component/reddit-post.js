@@ -104,18 +104,28 @@ export class RedditPost extends HTMLElement {
         if (this.currentIndex + this.postsPerPage < currentPost.length) {
             this.currentIndex += this.postsPerPage;
             this.render(currentPost);
-        }
+          
+            const backButton = document.getElementById("back-post-button");
+            backButton.style.display = "block";
+          }
     }
 
+    
     
     backPost() {
         if (this.currentIndex >= this.postsPerPage) {
             this.currentIndex -= this.postsPerPage;
             this.render(currentPost);
-        } else {
+          } else {
             alert("Nessuna pagina precedente.");
-            this.render()
-        }
+            this.render();
+          }
+        
+         
+          if (this.currentIndex === 0) {
+            const backButton = document.getElementById("back-post-button");
+            backButton.style.display = "none";
+          }
     }
     
 
