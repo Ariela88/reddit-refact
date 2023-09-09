@@ -74,38 +74,38 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  if (window.innerWidth <= 500) {
-  document.addEventListener("DOMContentLoaded", function () {
-    const postContainer = document.getElementById("post-container");
-    const backButton = document.getElementById("back-post-button");
-    const nextButton = document.getElementById("next-post-button");
+  // if (window.innerWidth <= 500) {
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   const postContainer = document.getElementById("post-container");
+  //   const backButton = document.getElementById("back-post-button");
+  //   const nextButton = document.getElementById("next-post-button");
   
    
-    backButton.style.display = "none";
-    nextButton.style.display = "none";
+  //   backButton.style.display = "none";
+  //   nextButton.style.display = "none";
   
     
-    postContainer.addEventListener("scroll", function () {
+  //   postContainer.addEventListener("scroll", function () {
       
-      if (
-        postContainer.scrollTop + postContainer.clientHeight >=
-        postContainer.scrollHeight
-      ) {
+  //     if (
+  //       postContainer.scrollTop + postContainer.clientHeight >=
+  //       postContainer.scrollHeight
+  //     ) {
       
-        nextButton.style.display = "block";
-      } else {
+  //       nextButton.style.display = "block";
+  //     } else {
       
-        nextButton.style.display = "none";
-      }
+  //       nextButton.style.display = "none";
+  //     }
   
      
-      if (postContainer.scrollTop === 0) {
+  //     if (postContainer.scrollTop === 0) {
        
-        backButton.style.display = "none";
-      } else {
+  //       backButton.style.display = "none";
+  //     } else {
        
-        backButton.style.display = "block";
-      }
-    });
-  });
-  }
+  //       backButton.style.display = "block";
+  //     }
+  //   });
+  // });
+  // }
