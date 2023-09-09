@@ -129,13 +129,28 @@ export class RedditPost extends HTMLElement {
     }
     
 
-displayMostRecentPost() {
-    const postContainer = document.getElementById("post-container");
-    postContainer.innerHTML = "";
-
-    currentPost.sort((a, b) => b.creationTime - a.creationTime);
-    this.render() 
-}
+    async displayMostRecentPost() {
+        const postContainer = document.getElementById("post-container");
+        postContainer.innerHTML = "";
+      
+        const subreddit = 'popular';
+      
+        try {
+          const response = await fetch(`https://www.reddit.com/r/${subreddit}/new.json`);
+          const data = await response.json();
+      
+          if (data && data.data && data.data.children) {
+            const postList = data.data.children.map(child => child.data);
+            this.render(postList);
+          } else {
+            console.error('Dati non validi dalla richiesta API di Reddit.');
+          }
+        } catch (error) {
+          console.error('Errore nella richiesta API di Reddit:', error);
+        }
+      }
+      
+      
 
 
 }

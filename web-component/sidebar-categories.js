@@ -28,7 +28,7 @@ export class SidebarCategories extends HTMLElement {
     };
 
     async showSelectedCategoryPosts(category) {
-        
+        console.log('categoria:', category)
         const postList = [];
         const promisesList = [];
         const promise = fetch(`https://api.reddit.com/search.json?q=${category}=new`).then(resp => resp.json()).then(res => {
