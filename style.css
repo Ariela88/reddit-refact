@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Neucha&family=Raleway:wght@200;400;600;700&display=swap');
 
 
@@ -11,10 +10,11 @@ body {
     overflow: hidden;
 }
 
-a{
-   
+a {
+
     color: white;
 }
+
 .navbar-container {
     background-color: #282626;
     height: 64px;
@@ -41,27 +41,27 @@ a{
 }
 
 .button-container {
-    
+
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: 10px;
 }
 
-.button-container button{
+.button-container button {
     border-radius: 20px;
     height: 36px;
     width: 120px;
-    border:none;    
+    border: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 .search-container {
     margin-right: 12px;
-    
+
 }
 
-.login-btn{
+.login-btn {
     background-color: #ff4500;
     color: white;
 }
@@ -83,12 +83,12 @@ a{
     padding-top: 70px;
 }
 
-.sidebar-container button{
+.sidebar-container button {
     font-family: 'Neucha', cursive;
     font-size: 16px;
 }
 
-.sidebar-container span{
+.sidebar-container span {
     font-family: 'Neucha', cursive;
     font-size: 20px;
     font-weight: bold;
@@ -204,9 +204,10 @@ a{
     color: white;
     font-family: 'Neucha', cursive;
     font-size: 28px;
-    
+
 }
-#save-button{
+
+#save-button {
     border-radius: 20px;
     width: 100px;
     background-color: #000000;
@@ -215,14 +216,14 @@ a{
     border: none;
 }
 
-hr{
+hr {
     width: 100%;
-    
+
 }
 
-.new-category-selection{
+.new-category-selection {
     display: flex;
-   
+
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
@@ -235,39 +236,42 @@ hr{
     height: 30px !important;
 }
 
-#input-new-category{
+#input-new-category {
     height: 24px;
+    margin-top: 10px;
 }
 
-.link-span{
+.link-span {
     background-color: #ff4500;
     color: white;
     display: flex;
     justify-content: center;
 }
-.link-span a{
+
+.link-span a {
     text-decoration: none;
     color: #ffffff;
 }
- 
-.link-span a:hover{
+
+.link-span a:hover {
     color: #282626;
 }
 
-.link-span a:active{
+.link-span a:active {
     color: #282626;
 }
+
 .selection-container {
     display: flex;
     flex-wrap: wrap;
-    
+
     margin-top: 30px;
-    
+
     margin-left: 32px;
-  
+
 }
 
-.post-reddit-container{
+.post-reddit-container {
     width: 60%;
 }
 
@@ -289,7 +293,7 @@ hr{
     height: calc(100% - 80px);
     display: flex;
     flex-direction: column;
-    padding:12px;
+    padding: 12px;
     align-items: center;
     gap: 8px;
     overflow-y: auto;
@@ -344,22 +348,22 @@ hr{
 .post-rss-container a {
     text-decoration: none;
     color: #ffffff;
-    
+
 }
 
-.rss-container{
-    
-        background-color: transparent;
-        width: 100%;
-        float: right;
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 40px;
-      }
+.rss-container {
 
-      .rss-description img{
-        width: 100%;
-    }
+    background-color: transparent;
+    width: 100%;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.rss-description img {
+    width: 100%;
+}
 
 .rss-header {
 
@@ -373,67 +377,70 @@ hr{
     padding: 16px;
 }
 
-.post-rss-container a:hover{
+.post-rss-container a:hover {
     text-decoration: none;
     color: #ff4500;
     font-weight: 700;
 }
 
 
-#save-new-category-button{
+#save-new-category-button {
     width: 140px;
     border-radius: 20px;
     background: orangered;
-  border: none;
+    border: none;
 }
 
-#close-category-dialog-button{
+#close-category-dialog-button {
     border-radius: 20px;
+    width: 140px;
 }
 
-#category-type-selection{
+#category-type-selection {
 
     width: 160px;
 }
 
-.show-rss-reddit{
+.show-rss-reddit {
     display: none;
 }
 
-#toggle-container-button{
+#toggle-container-button {
     display: none;
 }
 
 @media (max-width: 500px) {
 
-    #toggle-container-button{
+    #toggle-container-button {
         display: block;
     }
+
     .navbar-container {
         width: 100%;
         display: flex;
         flex-direction: column;
-        height: 24%; 
+        height: 24%;
         z-index: 9999;
         padding-bottom: 10px;
-        
-    }
-    #save-new-category-button{
-        height: 40px;
-  
+
     }
 
-    #save-button{
+    #save-new-category-button {
+        height: 40px;
+
+    }
+
+    #save-button {
         width: 140px;
         background-color: black;
-  color: white;
+        color: white;
     }
 
-  
+
 
     .sidebar-container {
         display: none;
-       
+
     }
 
     .main-page-container {
@@ -444,13 +451,13 @@ hr{
         gap: 0px;
         justify-content: center;
         top: 24%;
-        overflow: scroll    ;
-        
+        overflow: scroll;
+
     }
 
-    .post-reddit-container{
+    .post-reddit-container {
         width: 100%;
-       height: 100%;
+        height: 100%;
         overflow: scroll;
     }
 
@@ -458,77 +465,83 @@ hr{
         height: 100%;
         width: 100%;
         overflow: scroll;
+        display: none;
     }
 
-    .button-container button{
+    .button-container button {
         width: 50%;
         font-size: 12px;
-       
+
     }
 
-    .logo-container{
+    .logo-container {
         width: 100%;
     }
 
-    .page-button-rss-container{
+    .page-button-rss-container {
         display: none;
-       
+
     }
 
-    #post-container{
+    #post-container {
         height: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 12px;
-  align-items: center;
-  gap: 24px;
-  overflow-y: auto;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+        display: flex;
+        flex-direction: column;
+        padding: 12px;
+        align-items: center;
+        gap: 24px;
+        overflow-y: auto;
+        width: 100%;
+        margin: 0;
+        padding: 0;
 
     }
 
-  #rss-container {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            padding: 12px;
-            align-items: center;
-            gap: 8px;
-            overflow-y: auto;
-          }
-
-          .logo-container{
-            flex-grow: unset;
-            height: 32px;
-          }
-
-          #selection-dialog-container {
-           
-            background-color: rgba(0, 0, 0, 0.785);
-            display: flex;
-           
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            color: white;
-            font-size: 24px;
-            z-index: 99999;
-            left: 0;
-            right: 0;
-            width: 100%;
-         
-          
+    #rss-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 12px;
+        align-items: center;
+        gap: 8px;
+        overflow-y: auto;
     }
 
-    #selection-dialog-container button{
+    .logo-container {
+        flex-grow: unset;
+        height: 32px;
+    }
+
+    #selection-dialog-container {
+
+        background-color: rgba(0, 0, 0, 0.785);
+        display: flex;
+
+        align-items: center;
+        justify-content: start;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        color: white;
+        font-size: 24px;
+        z-index: 99999;
+        left: 0;
+        right: 0;
+        width: 100%;
+
+
+    }
+
+    .selection-container {
+        margin-top: 50px;
+
+    }
+
+    #selection-dialog-container button {
         margin: 10px;
     }
 
-    .new-category-selection{
+    .new-category-selection {
         gap: 0;
     }
 
