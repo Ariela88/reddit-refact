@@ -52,5 +52,26 @@ document.getElementById("back-post-button").addEventListener("click", () => {
 
 // document.getElementById('most-recent-post-reddit-button').addEventListener('click', ()=> redditPost.displayMostRecentPost())
 
-
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.getElementById("toggle-container-button");
+    const redditContainer = document.querySelector(".post-reddit-container");
+    const rssContainer = document.querySelector(".post-rss-container");
+  
+    let isRedditContainerVisible = true; 
+  
+    toggleButton.addEventListener("click", function () {
+      if (isRedditContainerVisible) {
+        redditContainer.style.display = "none";
+        rssContainer.style.display = "block";
+        toggleButton.textContent = "Mostra Reddit";
+      } else {
+        redditContainer.style.display = "block";
+        rssContainer.style.display = "none";
+        toggleButton.textContent = "Mostra RSS";
+      }
+  
+      isRedditContainerVisible = !isRedditContainerVisible;
+    });
+  });
+  
 

@@ -22,6 +22,11 @@
             <button id="open-dialog-category-container">+ Aggiungi categoria</button>
             <button class="login-btn">Scarica app</button>
             <button>Login</button>
+           
+                <button id="toggle-container-button">Mostra Reddit</button>
+
+
+           
         </div>
        
         
@@ -45,7 +50,9 @@
             <div class="page-button-container">
                 <button id="back-post-button">Indietro</button>
                 <button id="next-post-button">Avanti</button>
+                
             </div>
+            
             <div id="post-container"></div>
         </div>
         <div class="post-rss-container">
@@ -57,14 +64,7 @@
         </div>
     </div>
         <div id="selection-dialog-container">
-            <div class="new-category-selection">
-                <select name="category-type" id="category-type-selection">
-                    <option value="reddit">Categoria Reddit</option>
-                    <option value="rss">RSS</option>
-                </select>
-                <input type="text" id="input-new-category" value="">
-                <button id="save-new-category-button">Salva</button>
-            </div>
+            
             <div class="selection-container">
                 <div id="category-reddit-container">
                     <add-category></add-category>
@@ -72,9 +72,18 @@
                 <div id="category-rss-container">
                     <add-rss></add-rss>
                 </div>
+               
             </div>
-            <button id="save-button">Mostra Post</button>
-            <button id="close-category-dialog-button">Annulla</button>
+            <div class="new-category-selection">
+                <select name="category-type" id="category-type-selection">
+                    <option value="reddit">Categoria Reddit</option>
+                    <option value="rss">RSS</option>
+                </select>
+                <input type="text" id="input-new-category" value="">
+                <button id="save-new-category-button">Aggiungi alla lista</button>
+                <button id="save-button">Mostra Post</button>
+                <button id="close-category-dialog-button">Annulla</button>
+            </div>
         </div>
         
    
