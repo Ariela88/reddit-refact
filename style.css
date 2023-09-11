@@ -223,13 +223,14 @@ hr {
 
 .new-category-selection {
     display: flex;
-
-    flex-wrap: wrap;
-    justify-content: center;
+flex-direction: column;
+   align-items: center;
+    justify-content: start;
     gap: 10px;
     margin: 20px;
-    height: 30px;
-    width: 50%;
+    height: 100px;
+    width:100%;
+    margin-top: 40px;
 }
 
 .new-category-selection button {
@@ -538,11 +539,12 @@ hr {
     }
 
     #selection-dialog-container button {
-        margin: 10px;
+        margin: 4px;
     }
 
     .new-category-selection {
         gap: 0;
+       
     }
 
 }
