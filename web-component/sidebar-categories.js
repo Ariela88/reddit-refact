@@ -27,8 +27,9 @@ export class SidebarCategories extends HTMLElement {
         }
     };
 
-    async showSelectedCategoryPosts(category) {
+   showSelectedCategoryPosts(category) {
         console.log('categoria:', category)
+        document.getElementById('post-reddit-container').innerHTML =''
         const postList = [];
         const promisesList = [];
         const promise = fetch(`https://api.reddit.com/search.json?q=${category}=new`).then(resp => resp.json()).then(res => {
@@ -43,7 +44,7 @@ export class SidebarCategories extends HTMLElement {
 
         const redditPost = new RedditPost();
 
-        Promise.all(promisesList).then(() => redditPost.render(postList));
+        Promise.all(promisesList).then(() => redditPost.render(category));
 
 
     };
